@@ -5,44 +5,41 @@ import { API_BASE } from '../../utils/clinic.js';
 const CHANNEL_URL = 'https://www.youtube.com/@gokulnivas1996';
 
 function ShortCard({ video }) {
-  const [playing, setPlaying] = useState(false);
+  // Open the Short on YouTube — Shorts are unreliable in the embedded player
+  // (YouTube "Error 153"), so we link out for a consistent experience.
   return (
-    <div className="snap-start shrink-0 w-[200px] sm:w-[230px]">
+    <a
+      href={video.url}
+      target="_blank"
+      rel="noreferrer"
+      className="snap-start shrink-0 w-[200px] sm:w-[230px] group block"
+      aria-label={`Watch on YouTube: ${video.title}`}
+    >
       <div className="relative aspect-[9/16] rounded-2xl overflow-hidden bg-ink-900 shadow-soft border border-ink-100">
-        {playing ? (
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
-            title={video.title}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        ) : (
-          <button
-            type="button"
-            onClick={() => setPlaying(true)}
-            className="group absolute inset-0 h-full w-full"
-            aria-label={`Play: ${video.title}`}
-          >
-            <img
-              src={video.thumbnail}
-              alt={video.title}
-              loading="lazy"
-              className="h-full w-full object-cover group-hover:scale-105 transition"
-            />
-            <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-            <span className="absolute inset-0 grid place-items-center">
-              <span className="h-14 w-14 rounded-full bg-white/95 grid place-items-center shadow-lg group-hover:scale-110 transition">
-                <svg viewBox="0 0 24 24" className="h-6 w-6 text-ink-900 translate-x-0.5" fill="currentColor">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </span>
-          </button>
-        )}
+        <img
+          src={video.thumbnail}
+          alt={video.title}
+          loading="lazy"
+          className="h-full w-full object-cover group-hover:scale-105 transition"
+        />
+        <span className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+        <span className="absolute inset-0 grid place-items-center">
+          <span className="h-14 w-14 rounded-full bg-white/95 grid place-items-center shadow-lg group-hover:scale-110 transition">
+            <svg viewBox="0 0 24 24" className="h-6 w-6 text-ink-900 translate-x-0.5" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </span>
+        {/* YouTube badge */}
+        <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 rounded-full bg-red-600 text-white px-2 py-0.5 text-[10px] font-bold shadow">
+          <svg viewBox="0 0 24 24" className="h-3 w-3" fill="currentColor">
+            <path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15V9l5 3-5 3z" />
+          </svg>
+          YouTube
+        </span>
       </div>
       <p className="mt-2 px-0.5 text-xs text-ink-500 leading-snug line-clamp-2">{video.title}</p>
-    </div>
+    </a>
   );
 }
 

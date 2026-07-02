@@ -17,8 +17,12 @@ const videosRouter = require('./routes/videos');
 
 const app = express();
 
-// CSP disabled: the client serves images from external hosts (e.g. Unsplash).
-app.use(helmet({ contentSecurityPolicy: false }));
+// CSP disabled: the client loads images/embeds from external hosts (YouTube, Google, Unsplash).
+// Referrer policy relaxed so those services receive the embedding origin (avoids YouTube "Error 153").
+app.use(helmet({
+  contentSecurityPolicy: false,
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+}));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
