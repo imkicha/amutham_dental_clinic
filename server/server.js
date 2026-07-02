@@ -58,18 +58,15 @@ app.use((err, _req, res, _next) => {
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
-if (!MONGO_URI) {
-  console.error('MONGO_URI missing in .env — server will not start.');
-  process.exit(1);
-}
+// Start the HTTP server first so the frontend and /api/health are always up,
+// even if the database is slow or misconfigured. Then connect to MongoDB.
+app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 
-mongoose
-  .connect(MONGO_URI)
-  .then(() => {
-    console.log('MongoDB connected');
-    app.listen(PORT, () => console.log(`API listening on http://localhost:${PORT}`));
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error:', err.message);
-    process.exit(1);
-  });
+if (!MONGO_URI) {
+  console.error('MONGO_URI is not set — API routes that use the database will fail until it is configured.');
+} else {
+  mongoose
+    .connect(MONGO_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.error('MongoDB connection error:', err.message));
+}
