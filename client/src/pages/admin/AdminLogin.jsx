@@ -21,7 +21,8 @@ export default function AdminLogin() {
     try {
       const { data } = await api.post('/auth/login', { email, password });
       localStorage.setItem('adc_admin_token', data.token);
-      localStorage.setItem('adc_admin', JSON.stringify(data.admin));
+      if (data.admin) localStorage.setItem('adc_admin', JSON.stringify(data.admin));
+      else localStorage.removeItem('adc_admin');
       toast.success('Welcome back.');
       nav('/admin/dashboard');
     } catch (err) {

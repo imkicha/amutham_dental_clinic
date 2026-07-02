@@ -8,6 +8,18 @@ import { WhatsApp, Phone, Mail, Users, Award, Clock, Check, X } from '../../comp
 
 const STATUSES = ['all', 'new', 'confirmed', 'completed', 'cancelled'];
 
+// Safely read the stored admin — tolerates missing / "undefined" / corrupt values.
+function readStoredAdmin() {
+  const raw = localStorage.getItem('adc_admin');
+  if (!raw || raw === 'undefined' || raw === 'null') return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    localStorage.removeItem('adc_admin');
+    return null;
+  }
+}
+
 const statusStyle = {
   new: 'bg-blue-100 text-blue-700',
   confirmed: 'bg-emerald-100 text-emerald-700',
@@ -17,7 +29,7 @@ const statusStyle = {
 
 export default function AdminDashboard() {
   const nav = useNavigate();
-  const admin = JSON.parse(localStorage.getItem('adc_admin') || 'null');
+  const admin = readStoredAdmin();
   const [filters, setFilters] = useState({ q: '', status: 'all', from: '', to: '', page: 1, limit: 20 });
   const [data, setData] = useState({ items: [], total: 0, stats: {} });
   const [loading, setLoading] = useState(true);
