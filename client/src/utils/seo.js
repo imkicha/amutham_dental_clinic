@@ -148,6 +148,21 @@ export const serviceSchema = ({ name, description, path }) => ({
   areaServed: { '@type': 'City', name: 'Madurai' },
 });
 
+export const articleSchema = ({ title, description, path, datePublished, image }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  url: abs(path),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': abs(path) },
+  image: image || DEFAULT_OG_IMAGE,
+  datePublished,
+  dateModified: datePublished,
+  inLanguage: 'en-IN',
+  author: { '@type': 'Person', name: 'Dr. Gokul Nivas', url: SITE_URL },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+});
+
 export const faqSchema = (faqs) => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

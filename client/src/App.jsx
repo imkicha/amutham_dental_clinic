@@ -12,6 +12,8 @@ const BookAppointment = lazy(() => import('./pages/BookAppointment.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
 const Pricing = lazy(() => import('./pages/Pricing.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
+const BlogList = lazy(() => import('./pages/blog/BlogList.jsx'));
+const BlogPost = lazy(() => import('./pages/blog/BlogPost.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin.jsx'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard.jsx'));
@@ -56,6 +58,8 @@ export default function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/pricing" element={<Pricing />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/blog" element={<BlogList />} />
+                    <Route path="/blog/:slug" element={<BlogPost />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
