@@ -46,12 +46,10 @@ export default function BookingForm({ defaultTreatment, compact = false }) {
     try {
       const { data } = await api.post('/appointments', form);
       setDone(data);
-      toast.success('Appointment received! We will WhatsApp you shortly.');
-      const patientLink = data?.whatsapp?.patientLink;
-      if (patientLink) {
-        // open patient WA confirmation in a new tab
-        window.open(patientLink, '_blank', 'noopener');
-      }
+      toast.success('Appointment received! Our team will contact you shortly.');
+      // Note: we intentionally do NOT auto-open WhatsApp — the booking is saved
+      // and appears in the admin dashboard. The success screen offers an
+      // optional WhatsApp button if the patient wants to message us.
     } catch (err) {
       const msg = err?.response?.data?.error || 'Could not submit. Please call us directly.';
       toast.error(msg);
