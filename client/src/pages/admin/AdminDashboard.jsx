@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { api } from '../../utils/api';
-import { API_BASE, waLink } from '../../utils/clinic';
+import { API_BASE, waTo } from '../../utils/clinic';
 import Logo from '../../components/ui/Logo.jsx';
 import { WhatsApp, Phone, Mail, Users, Award, Clock, Check, X } from '../../components/ui/Icon.jsx';
 
@@ -160,7 +160,42 @@ export default function AdminDashboard() {
         </div>
 
         <div className="card mt-6 overflow-hidden">
-          <div className="overflow-x-auto">
+          {/* mobile card list */}
+          <div className="md:hidden divide-y divide-slate-100">
+            {loading && <div className="text-center py-10 text-ink-300">Loading…</div>}
+            {!loading && data.items.length === 0 && (
+              <div className="text-center py-10 text-ink-300">No appointments found.</div>
+            )}
+            {!loading && data.items.map((a) => (
+              <div key={a._id} className="p-4" onClick={() => setSelected(a)}>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <div className="font-semibold text-ink-900">{a.name}</div>
+                    <div className="text-xs text-ink-500">{a.phone}</div>
+                  </div>
+                  <span className={`badge shrink-0 ${statusStyle[a.status] || ''}`}>{a.status}</span>
+                </div>
+                <div className="text-sm text-ink-700 mt-2">{a.treatment}</div>
+                <div className="text-xs text-ink-500 mt-1">{a.preferredDate} · {a.preferredTime}</div>
+                <div className="flex gap-2 mt-3" onClick={(e) => e.stopPropagation()}>
+                  <a
+                    href={waTo(a.phone, `Hi ${a.name}, this is Amutham Dental Care regarding your appointment.`)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn-whatsapp h-9 px-3 text-xs flex-1"
+                  >
+                    <WhatsApp className="h-4 w-4" /> WhatsApp
+                  </a>
+                  <a href={`tel:${a.phone}`} className="btn-ghost h-9 px-3 text-xs flex-1">
+                    <Phone className="h-4 w-4" /> Call
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* desktop table */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50 text-ink-500 text-xs uppercase tracking-wider">
                 <tr>
@@ -193,7 +228,7 @@ export default function AdminDashboard() {
                     <td className="px-4 py-3 text-ink-500 text-xs">{new Date(a.createdAt).toLocaleString()}</td>
                     <td className="px-4 py-3 text-right" onClick={(e) => e.stopPropagation()}>
                       <div className="inline-flex gap-1">
-                        <a href={waLink(`Hi ${a.name}, calling from Amutham Dental.`)} target="_blank" rel="noreferrer" className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center" title="WhatsApp">
+                        <a href={waTo(a.phone, `Hi ${a.name}, this is Amutham Dental Care regarding your appointment.`)} target="_blank" rel="noreferrer" className="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center" title="WhatsApp">
                           <WhatsApp className="h-4 w-4" />
                         </a>
                         <a href={`tel:${a.phone}`} className="h-8 w-8 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center" title="Call">
@@ -245,7 +280,7 @@ export default function AdminDashboard() {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-2">
-              <a href={waLink(`Hi ${selected.name}, this is ${'Amutham Dental'} — confirming your appointment for ${selected.treatment} on ${selected.preferredDate} at ${selected.preferredTime}.`)} target="_blank" rel="noreferrer" className="btn-whatsapp h-10 text-xs">
+              <a href={waTo(selected.phone, `Hi ${selected.name}, this is Amutham Dental Care — confirming your appointment for ${selected.treatment} on ${selected.preferredDate} at ${selected.preferredTime}.`)} target="_blank" rel="noreferrer" className="btn-whatsapp h-10 text-xs">
                 <WhatsApp className="h-4 w-4" /> WhatsApp
               </a>
               <a href={`tel:${selected.phone}`} className="btn-primary h-10 text-xs">

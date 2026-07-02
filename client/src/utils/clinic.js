@@ -21,6 +21,14 @@ export function waLink(text = 'Hello, I would like to book an appointment.') {
   return `https://wa.me/${CLINIC.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 
+// WhatsApp link to a specific (e.g. patient) number, normalised to E.164 digits.
+export function waTo(phone, text = '') {
+  let d = String(phone || '').replace(/[^0-9]/g, '');
+  if (d.length === 11 && d.startsWith('0')) d = d.slice(1); // drop leading 0
+  if (d.length === 10) d = `91${d}`; // add India country code
+  return `https://wa.me/${d}?text=${encodeURIComponent(text)}`;
+}
+
 export function telLink(number) {
   const n = (number || CLINIC.phone).replace(/\s/g, '');
   return `tel:${n}`;
