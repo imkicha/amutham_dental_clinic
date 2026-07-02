@@ -45,9 +45,20 @@ app.use('/api/videos', videosRouter);
 
 // Serve the built React client (single-origin) when a production build exists.
 const clientDist = path.join(__dirname, '..', 'client', 'dist');
-if (fs.existsSync(path.join(clientDist, 'index.html'))) {
+const hasClientBuild = fs.existsSync(path.join(clientDist, 'index.html'));
+if (hasClientBuild) {
+  console.log('Serving client build from:', clientDist);
   app.use(express.static(clientDist));
+  // SPA fallback for everything EXCEPT /api (so API routes always return JSON).
   app.get(/^(?!\/api).*/, (_req, res) => res.sendFile(path.join(clientDist, 'index.html')));
+} else {
+  console.warn(
+    'client/dist not found at',
+    clientDist,
+    '— frontend will not be served. Ensure the client is built and the app root is the repo root.'
+  );
+  // Keep the app healthy for diagnostics even without a build.
+  app.get('/', (_req, res) => res.json({ ok: true, note: 'API up; client build missing' }));
 }
 
 app.use((err, _req, res, _next) => {
