@@ -3,8 +3,8 @@ import { ArrowRight } from '../ui/Icon.jsx';
 
 // ── CONFIG ─────────────────────────────────────────────────────────────
 // 1) Set your Instagram profile URL:
-export const INSTAGRAM_URL = 'https://www.instagram.com/amuthamdentalcare/';
-export const INSTAGRAM_HANDLE = '@amuthamdentalcare';
+export const INSTAGRAM_URL = 'https://www.instagram.com/dr_gokulnivas_implantologist/';
+export const INSTAGRAM_HANDLE = '@dr_gokulnivas_implantologist';
 // 2) Paste the widget iframe URL from SnapWidget / LightWidget here.
 //    (From SnapWidget "Get Widget" → copy the src="..." value of the <iframe>.)
 //    Leave '' to just show the Follow button until you have it.
