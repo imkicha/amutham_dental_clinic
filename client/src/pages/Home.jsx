@@ -19,7 +19,7 @@ import {
 
 const HOME_TITLE = 'Best Dental Clinic in Madurai';
 const HOME_DESC =
-  'Amutham Dental Care is one of the best dental clinics in Madurai offering Root Canal Treatment, Dental Implants, Braces, Cosmetic Dentistry, Pediatric Dentistry and Emergency Dental Care by Dr. Gokul Nivas (MDS, Implantologist).';
+  'Amutham Dental Care is one of the best dental clinics in Madurai & Kalavasal offering Root Canal Treatment, Dental Implants, Full Mouth Implants, Braces, Cosmetic Dentistry and Kids Dentistry by Dr. Gokul Nivas (MDS, Implantologist). Book: +91 94454 11891.';
 
 const HOME_FAQS = [
   {
@@ -50,7 +50,7 @@ export default function Home() {
       <SEO
         title={HOME_TITLE}
         description={HOME_DESC}
-        keywords="Dentist Madurai, Dental Clinic Madurai, Best Dentist Madurai, Root Canal Madurai, Dental Implants Madurai, Teeth Whitening Madurai, Kids Dentist Madurai, Emergency Dentist Madurai"
+        keywords="Best Dental Clinic in Madurai, Best Dental Clinic in Kalavasal, Dentist in Kalavasal, Dentist Madurai, Dental Clinic Madurai, Best Dentist Madurai, Root Canal Madurai, Dental Implants Madurai, Kids Dentist Madurai"
         path="/"
         jsonLd={[
           dentistSchema(),

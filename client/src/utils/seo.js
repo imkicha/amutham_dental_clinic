@@ -7,8 +7,12 @@ export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const TWITTER_HANDLE = '';
 
 export const DEFAULT_KEYWORDS = [
+  'Best Dental Clinic in Madurai',
+  'Best Dental Clinic in Kalavasal',
   'Dentist in Madurai',
+  'Dentist in Kalavasal',
   'Dental Clinic Madurai',
+  'Dental Clinic Kalavasal',
   'Best Dentist Madurai',
   'Root Canal Treatment Madurai',
   'Dental Implants Madurai',
@@ -57,6 +61,7 @@ const CLINIC_NAP = {
     },
   ],
   areaServed: [
+    { '@type': 'Place', name: 'Kalavasal, Madurai' },
     { '@type': 'City', name: 'Madurai' },
     { '@type': 'AdministrativeArea', name: 'Tamil Nadu' },
   ],
