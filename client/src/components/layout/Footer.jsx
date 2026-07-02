@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import Logo from '../ui/Logo.jsx';
 import { services } from '../../data/services';
-import { CLINIC, telLink, waLink } from '../../utils/clinic';
+import { CLINIC, telLink, waLink, INSTAGRAM_URL } from '../../utils/clinic';
 import { Phone, MapPin, Mail, WhatsApp } from '../ui/Icon.jsx';
-import { INSTAGRAM_URL } from '../sections/InstagramFeed.jsx';
 
 export default function Footer() {
   return (

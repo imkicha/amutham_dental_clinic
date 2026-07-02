@@ -31,3 +31,7 @@ export const API_BASE = env.VITE_API_URL || '/api';
 // Google Maps listing (CID from the clinic's Google profile) — used for "see all reviews".
 export const GOOGLE_REVIEWS_URL =
   env.VITE_GOOGLE_REVIEWS_URL || 'https://www.google.com/maps?cid=15422977007656897352';
+
+// Instagram profile — linked from the footer.
+export const INSTAGRAM_URL =
+  env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/dr_gokulnivas_implantologist/';

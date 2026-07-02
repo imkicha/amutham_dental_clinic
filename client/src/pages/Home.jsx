@@ -7,7 +7,6 @@ import Pricing from '../components/sections/Pricing.jsx';
 import Reviews from '../components/sections/Reviews.jsx';
 import Gallery from '../components/sections/Gallery.jsx';
 import Shorts from '../components/sections/Shorts.jsx';
-import InstagramFeed from '../components/sections/InstagramFeed.jsx';
 import BookingSection from '../components/sections/BookingSection.jsx';
 import ContactSection from '../components/sections/ContactSection.jsx';
 import { CLINIC } from '../utils/clinic';
@@ -47,7 +46,6 @@ export default function Home() {
       <ServicesGrid />
       <Gallery />
       <Shorts />
-      <InstagramFeed />
       <Reviews />
       <AwardSection />
       <BookingSection />
