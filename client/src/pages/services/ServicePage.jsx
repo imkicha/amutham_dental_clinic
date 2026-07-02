@@ -44,7 +44,7 @@ export default function ServicePage() {
         <div className="absolute inset-0 tooth-pattern opacity-15 pointer-events-none" />
         <div className="container relative py-16 lg:py-24 grid lg:grid-cols-12 gap-10 items-center text-white">
           <div className="lg:col-span-7">
-            <Link to="/" className="text-sm text-white/80 hover:text-white">← All services</Link>
+            <Link to="/services" className="text-sm text-white/80 hover:text-white">← All services</Link>
             <h1 className="font-display text-4xl lg:text-6xl font-extrabold tracking-tight mt-3 leading-[1.05]">
               {svc.hero}
             </h1>

@@ -6,6 +6,7 @@ import StickyWhatsApp from './components/layout/StickyWhatsApp.jsx';
 import ScrollToTop from './components/layout/ScrollToTop.jsx';
 
 const Home = lazy(() => import('./pages/Home.jsx'));
+const ServicesList = lazy(() => import('./pages/services/ServicesList.jsx'));
 const ServicePage = lazy(() => import('./pages/services/ServicePage.jsx'));
 const BookAppointment = lazy(() => import('./pages/BookAppointment.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
@@ -49,6 +50,7 @@ export default function App() {
                 <Suspense fallback={<PageFallback />}>
                   <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/services" element={<ServicesList />} />
                     <Route path="/services/:slug" element={<ServicePage />} />
                     <Route path="/book-appointment" element={<BookAppointment />} />
                     <Route path="/about" element={<About />} />
