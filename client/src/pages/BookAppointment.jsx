@@ -3,6 +3,7 @@ import SEO from '../components/layout/SEO.jsx';
 import BookingForm from '../components/sections/BookingForm.jsx';
 import { Shield, Clock, Award, WhatsApp } from '../components/ui/Icon.jsx';
 import { CLINIC, waLink, telLink } from '../utils/clinic';
+import { breadcrumbSchema } from '../utils/seo';
 
 export default function BookAppointment() {
   const { search } = useLocation();
@@ -10,7 +11,13 @@ export default function BookAppointment() {
 
   return (
     <>
-      <SEO title="Book Appointment" description="Book your dental appointment online in 30 seconds. WhatsApp confirmation within 15 minutes." />
+      <SEO
+        title="Book a Dental Appointment in Madurai"
+        description="Book your dental appointment at Amutham Dental Care, Kalavasal Madurai in 30 seconds. WhatsApp confirmation within minutes. Root canal, implants, braces & more."
+        keywords="Book dentist Madurai, Dental appointment Madurai, Dentist near me Madurai"
+        path="/book-appointment"
+        jsonLd={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Book Appointment', path: '/book-appointment' }])}
+      />
       <section className="gradient-hero">
         <div className="container py-14 lg:py-20 grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">

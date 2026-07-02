@@ -2,6 +2,7 @@ import SEO from '../components/layout/SEO.jsx';
 import Trust from '../components/sections/Trust.jsx';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Award, Users, Check } from '../components/ui/Icon.jsx';
+import { breadcrumbSchema } from '../utils/seo';
 
 const values = [
   { icon: <Shield />, title: 'Hospital-grade sterilisation', text: 'Class-B autoclaves, single-use kits, EPA-approved disinfection on every patient.' },
@@ -12,7 +13,13 @@ const values = [
 export default function About() {
   return (
     <>
-      <SEO title="About Us" description="20+ years of trusted dentistry in Chennai. Meet the doctors, see our values and the technology behind every smile." />
+      <SEO
+        title="About Us — Dental Clinic in Madurai"
+        description="Meet the specialists behind Amutham Dental Care, Kalavasal Madurai — led by Dr. Gokul Nivas (MDS, Implantologist). Trusted, transparent, hospital-grade dentistry for Madurai families."
+        keywords="About Amutham Dental Care, Dentist Madurai, Dr Gokul Nivas, Implantologist Madurai"
+        path="/about"
+        jsonLd={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }])}
+      />
       <section className="gradient-hero">
         <div className="container py-16 lg:py-24 max-w-3xl">
           <span className="eyebrow">Our story</span>

@@ -6,6 +6,7 @@ import BookingForm from '../../components/sections/BookingForm.jsx';
 import { findService, services } from '../../data/services';
 import { Check, ArrowRight, WhatsApp, Phone } from '../../components/ui/Icon.jsx';
 import { waLink, telLink, CLINIC } from '../../utils/clinic';
+import { serviceSchema, breadcrumbSchema, faqSchema, webPageSchema } from '../../utils/seo';
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -14,23 +15,29 @@ export default function ServicePage() {
 
   const otherServices = services.filter((s) => s.slug !== svc.slug).slice(0, 3);
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalProcedure',
-    name: svc.title,
-    description: svc.description,
-    procedureType: 'Dental',
-    bodyLocation: 'Mouth',
-    provider: { '@type': 'Dentist', name: CLINIC.name, telephone: CLINIC.phone },
-  };
+  const path = `/services/${svc.slug}`;
+  const seoTitle = `${svc.title} in Madurai`;
+  const seoDesc = `${svc.title} at Amutham Dental Care, Kalavasal Madurai — ${svc.short} Book with Dr. Gokul Nivas. Call +91 94454 11891.`;
+
+  const schemas = [
+    serviceSchema({ name: svc.title, description: svc.description, path }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/#services' },
+      { name: svc.title, path },
+    ]),
+    webPageSchema({ path, title: `${seoTitle} | Amutham Dental Care`, description: seoDesc }),
+  ];
+  if (svc.faqs && svc.faqs.length) schemas.push(faqSchema(svc.faqs));
 
   return (
     <>
       <SEO
-        title={svc.title}
-        description={svc.short}
-        path={`/services/${svc.slug}`}
-        jsonLd={jsonLd}
+        title={seoTitle}
+        description={seoDesc}
+        keywords={`${svc.title} Madurai, ${svc.title} cost Madurai, best ${svc.title} Madurai, Dentist Madurai`}
+        path={path}
+        jsonLd={schemas}
       />
 
       <section className={`relative overflow-hidden bg-gradient-to-br ${svc.color}`}>

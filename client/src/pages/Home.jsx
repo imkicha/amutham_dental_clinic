@@ -9,36 +9,56 @@ import Gallery from '../components/sections/Gallery.jsx';
 import Shorts from '../components/sections/Shorts.jsx';
 import BookingSection from '../components/sections/BookingSection.jsx';
 import ContactSection from '../components/sections/ContactSection.jsx';
-import { CLINIC } from '../utils/clinic';
+import {
+  dentistSchema,
+  organizationSchema,
+  websiteSchema,
+  webPageSchema,
+  faqSchema,
+} from '../utils/seo';
+
+const HOME_TITLE = 'Best Dental Clinic in Madurai';
+const HOME_DESC =
+  'Amutham Dental Care is one of the best dental clinics in Madurai offering Root Canal Treatment, Dental Implants, Braces, Cosmetic Dentistry, Pediatric Dentistry and Emergency Dental Care by Dr. Gokul Nivas (MDS, Implantologist).';
+
+const HOME_FAQS = [
+  {
+    q: 'Which is the best dental clinic in Madurai?',
+    a: 'Amutham Dental Care in Kalavasal, Madurai is a leading dental clinic led by Dr. Gokul Nivas (MDS, Implantologist & Periodontologist), offering dental implants, root canal, braces, cosmetic and kids dentistry with a 5-star rating from 322+ patients.',
+  },
+  {
+    q: 'Where is Amutham Dental Care located?',
+    a: 'No 75, Bypass Road, Near Big Bazaar, Kalavasal, Madurai 625016, Tamil Nadu. Easy parking, walk-ins welcome during clinic hours.',
+  },
+  {
+    q: 'What are the clinic timings?',
+    a: 'Monday to Saturday, 6:00 PM to 9:00 PM. Sunday by appointment. Emergency care available on call.',
+  },
+  {
+    q: 'How much does a dental implant cost in Madurai?',
+    a: 'Single dental implants start at ₹20,000 and full-mouth fixed implant packages start from ₹2.5 lakh. The final cost is confirmed after a consultation and 3D CBCT scan.',
+  },
+  {
+    q: 'How do I book an appointment?',
+    a: 'Call +91 94454 11891, message us on WhatsApp, or book online at amuthamdentalcare.com. You get a confirmation within minutes.',
+  },
+];
 
 export default function Home() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Dentist',
-    name: CLINIC.name,
-    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: CLINIC.address,
-      addressLocality: 'Madurai',
-      addressRegion: 'Tamil Nadu',
-      postalCode: '625016',
-      addressCountry: 'IN',
-    },
-    telephone: CLINIC.phone,
-    email: CLINIC.email,
-    priceRange: '$$',
-    openingHoursSpecification: [
-      { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '18:00', closes: '21:00' },
-    ],
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '322' },
-  };
   return (
     <>
       <SEO
-        title="A Complete Family Dental Care, Madurai"
-        description="Painless root canal, implants, braces, whitening & emergency dentistry in Kalavasal Madurai. Book in 30 seconds — WhatsApp confirmation in 15 min."
-        jsonLd={jsonLd}
+        title={HOME_TITLE}
+        description={HOME_DESC}
+        keywords="Dentist Madurai, Dental Clinic Madurai, Best Dentist Madurai, Root Canal Madurai, Dental Implants Madurai, Teeth Whitening Madurai, Kids Dentist Madurai, Emergency Dentist Madurai"
+        path="/"
+        jsonLd={[
+          dentistSchema(),
+          organizationSchema(),
+          websiteSchema(),
+          webPageSchema({ path: '/', title: `${HOME_TITLE} | Amutham Dental Care`, description: HOME_DESC }),
+          faqSchema(HOME_FAQS),
+        ]}
       />
       <Hero />
       <Trust />

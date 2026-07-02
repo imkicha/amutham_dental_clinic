@@ -4,7 +4,7 @@ import SEO from '../components/layout/SEO.jsx';
 export default function NotFound() {
   return (
     <>
-      <SEO title="Page not found" />
+      <SEO title="Page not found" path="/404" noindex />
       <section className="min-h-[70vh] grid place-items-center text-center px-6">
         <div>
           <div className="font-display text-7xl font-extrabold text-brand-600">404</div>

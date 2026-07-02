@@ -1,11 +1,18 @@
 import SEO from '../components/layout/SEO.jsx';
 import ContactSection from '../components/sections/ContactSection.jsx';
 import BookingForm from '../components/sections/BookingForm.jsx';
+import { breadcrumbSchema } from '../utils/seo';
 
 export default function ContactPage() {
   return (
     <>
-      <SEO title="Contact & Location" description="Visit Amutham Dental Clinic in Chennai. Call, WhatsApp or book online — confirmed in 15 minutes." />
+      <SEO
+        title="Contact & Location — Dentist in Kalavasal, Madurai"
+        description="Visit Amutham Dental Care at No 75, Bypass Road, Near Big Bazaar, Kalavasal, Madurai. Call +91 94454 11891, WhatsApp or book online — confirmed in minutes."
+        keywords="Dental clinic Kalavasal Madurai, Dentist near me Madurai, Amutham Dental Care contact, Dentist Bypass Road Madurai"
+        path="/contact"
+        jsonLd={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])}
+      />
       <section className="gradient-hero">
         <div className="container py-14 lg:py-20 max-w-3xl">
           <span className="eyebrow">Get in touch</span>

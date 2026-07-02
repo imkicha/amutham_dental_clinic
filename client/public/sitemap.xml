@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc><priority>1.0</priority></url>
-  <url><loc>/about</loc><priority>0.7</priority></url>
-  <url><loc>/contact</loc><priority>0.7</priority></url>
-  <url><loc>/book-appointment</loc><priority>0.9</priority></url>
-  <url><loc>/services/root-canal-treatment</loc><priority>0.8</priority></url>
-  <url><loc>/services/teeth-whitening</loc><priority>0.8</priority></url>
-  <url><loc>/services/dental-implants</loc><priority>0.8</priority></url>
-  <url><loc>/services/braces-aligners</loc><priority>0.8</priority></url>
-  <url><loc>/services/pediatric-dentistry</loc><priority>0.8</priority></url>
-  <url><loc>/services/cosmetic-dentistry</loc><priority>0.8</priority></url>
-  <url><loc>/services/emergency-dental-care</loc><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/pricing</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/book-appointment</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/root-canal-treatment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/teeth-whitening</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/dental-implants</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/full-mouth-dental-implants</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/braces-aligners</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/pediatric-dentistry</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.amuthamdentalcare.com/services/cosmetic-dentistry</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

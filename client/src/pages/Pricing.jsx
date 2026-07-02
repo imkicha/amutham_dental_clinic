@@ -3,13 +3,17 @@ import SEO from '../components/layout/SEO.jsx';
 import PriceList from '../components/sections/PriceList.jsx';
 import { ArrowRight, WhatsApp } from '../components/ui/Icon.jsx';
 import { waLink } from '../utils/clinic';
+import { breadcrumbSchema } from '../utils/seo';
 
 export default function Pricing() {
   return (
     <>
       <SEO
-        title="Dental Treatment Price List"
-        description="Transparent dental treatment prices at Amutham Dental Care, Madurai — consultation, teeth cleaning, root canal, crowns, implants, braces & Invisalign. EMI available on major treatments."
+        title="Dental Treatment Price List in Madurai"
+        description="Transparent dental treatment prices at Amutham Dental Care, Madurai — consultation, teeth cleaning, root canal (₹3,200), crowns, dental implants (from ₹20,000), full-mouth implants & braces. EMI available."
+        keywords="Dental treatment cost Madurai, Root canal cost Madurai, Dental implant cost Madurai, Braces cost Madurai, Teeth cleaning price Madurai"
+        path="/pricing"
+        jsonLd={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Pricing', path: '/pricing' }])}
       />
 
       <section className="gradient-hero">
