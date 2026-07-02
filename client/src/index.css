@@ -57,6 +57,13 @@ body {
     radial-gradient(700px 400px at -5% 10%, rgba(255,199,44,0.18), transparent 55%),
     linear-gradient(180deg, #fffaf0 0%, #ffffff 70%);
 }
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 .glass {
   background: rgba(255,255,255,0.78);
   backdrop-filter: saturate(180%) blur(14px);

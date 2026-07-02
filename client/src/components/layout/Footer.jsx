@@ -66,7 +66,19 @@ export default function Footer() {
       <div className="border-t border-white/10 relative">
         <div className="container py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ink-400">
           <span>© {new Date().getFullYear()} {CLINIC.name}. {CLINIC.dci}.</span>
-          <span>Designed for healthier smiles.</span>
+          <span>
+            Developed by{' '}
+            <a
+              href="https://kishore.pokisham.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-brand-500 hover:text-brand-400 underline-offset-2 hover:underline"
+            >
+              Kishore Nishaanth
+            </a>{' '}
+            · Software Developer ·{' '}
+            <a href="tel:+918682821273" className="hover:text-brand-500">+91 86828 21273</a>
+          </span>
         </div>
       </div>
     </footer>

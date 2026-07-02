@@ -4,9 +4,9 @@ export const CLINIC = {
   name: env.VITE_CLINIC_NAME || 'Amutham Dental Care',
   tagline: env.VITE_CLINIC_TAGLINE || 'A Complete Family Dental Care',
   phone: env.VITE_CLINIC_PHONE || '+91 94454 11891',
-  phoneAlt: env.VITE_CLINIC_PHONE_ALT || '+91 94431 95491',
+  phoneAlt: env.VITE_CLINIC_PHONE_ALT || '+91 72004 29119',
   whatsapp: (env.VITE_CLINIC_WHATSAPP || '919445411891').replace(/[^0-9]/g, ''),
-  email: env.VITE_CLINIC_EMAIL || 'care@amuthamdental.com',
+  email: env.VITE_CLINIC_EMAIL || 'gokulnivas999@gmail.com',
   address: env.VITE_CLINIC_ADDRESS || 'No 75, Bypass Road, Near Big Bazaar, Kalavasal, Madurai 625016',
   mapQuery: env.VITE_CLINIC_MAP_QUERY || 'Amutham Dental Care Kalavasal Madurai',
   dci: env.VITE_CLINIC_DCI || 'DCI Reg No 27795',
@@ -27,3 +27,7 @@ export function telLink(number) {
 }
 
 export const API_BASE = env.VITE_API_URL || '/api';
+
+// Google Maps listing (CID from the clinic's Google profile) — used for "see all reviews".
+export const GOOGLE_REVIEWS_URL =
+  env.VITE_GOOGLE_REVIEWS_URL || 'https://www.google.com/maps?cid=15422977007656897352';

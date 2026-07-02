@@ -2,25 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight } from '../ui/Icon.jsx';
 
+// Real patient before/after cases (single composite images).
 const items = [
-  { id: 1, label: 'Severe staining → bright white', treatment: 'Whitening',
-    before: 'https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80' },
-  { id: 2, label: 'Missing teeth → full smile', treatment: 'Implants',
-    before: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=800&q=80' },
-  { id: 3, label: 'Crooked teeth → perfect alignment', treatment: 'Aligners',
-    before: 'https://images.unsplash.com/photo-1606811951341-1b7f3a52d3f0?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=800&q=80' },
-  { id: 4, label: 'Chipped front → seamless veneer', treatment: 'Cosmetic',
-    before: 'https://images.unsplash.com/photo-1559591935-c6c92c6e4ce6?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1581585051171-6f6b3c4f1a7d?auto=format&fit=crop&w=800&q=80' },
-  { id: 5, label: 'Decayed molar → painless RCT', treatment: 'Root Canal',
-    before: 'https://images.unsplash.com/photo-1559591937-37b2a1c7e9d5?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80' },
-  { id: 6, label: 'Gummy smile → balanced line', treatment: 'Cosmetic',
-    before: 'https://images.unsplash.com/photo-1581595219315-a187dd40c322?auto=format&fit=crop&w=800&q=80',
-    after: 'https://images.unsplash.com/photo-1612531386530-97286d97c2d2?auto=format&fit=crop&w=800&q=80' },
+  { id: 1, label: 'Full Mouth Implant Rehabilitation', treatment: 'Full Mouth Implants', src: '/before-after/full-mouth-implant-rehab.webp' },
+  { id: 2, label: 'Full Mouth Implants', treatment: 'Implants', src: '/before-after/full-mouth-implants.webp' },
+  { id: 3, label: 'Composite Smile Design', treatment: 'Cosmetic', src: '/before-after/composite-smile.webp' },
+  { id: 4, label: 'Zirconia Crowns', treatment: 'Crowns', src: '/before-after/zirconia-crowns.webp' },
+  { id: 5, label: 'Root Canal Treatment', treatment: 'Root Canal', src: '/before-after/root-canal.webp' },
+  { id: 6, label: 'Stain Removal — Air Polishing', treatment: 'Cleaning', src: '/before-after/stain-removal.webp' },
 ];
 
 export default function Gallery() {
@@ -36,7 +25,7 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-7xl mx-auto">
           {items.map((it, i) => (
             <motion.button
               key={it.id}
@@ -46,15 +35,16 @@ export default function Gallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.35, delay: i * 0.04 }}
-              className="group relative aspect-[4/3] rounded-2xl overflow-hidden text-left"
+              className="group card relative aspect-[4/3] overflow-hidden text-left bg-ink-100"
             >
-              <div className="grid grid-cols-2 h-full">
-                <img src={it.before} alt="Before" className="h-full w-full object-cover" loading="lazy" />
-                <img src={it.after} alt="After" className="h-full w-full object-cover" loading="lazy" />
-              </div>
-              <span className="absolute top-3 left-3 badge bg-white/90 text-ink-900">Before</span>
-              <span className="absolute top-3 right-3 badge bg-brand-600 text-white">After</span>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+              <img
+                src={it.src}
+                alt={`${it.label} — before and after`}
+                loading="lazy"
+                className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.04]"
+              />
+              <span className="absolute top-3 left-3 badge bg-brand-600 text-white">Before / After</span>
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent p-4">
                 <div className="text-white text-sm font-semibold">{it.label}</div>
                 <div className="text-brand-200 text-xs">{it.treatment}</div>
               </div>
@@ -72,21 +62,14 @@ export default function Gallery() {
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden"
+              className="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <button onClick={() => setActive(null)} className="absolute top-3 right-3 z-10 h-9 w-9 rounded-full bg-white shadow flex items-center justify-center">
                 <X />
               </button>
-              <div className="grid sm:grid-cols-2">
-                <div className="relative">
-                  <img src={active.before} alt="Before" className="w-full aspect-square object-cover" />
-                  <span className="absolute top-3 left-3 badge bg-white text-ink-900">Before</span>
-                </div>
-                <div className="relative">
-                  <img src={active.after} alt="After" className="w-full aspect-square object-cover" />
-                  <span className="absolute top-3 left-3 badge bg-brand-600 text-white">After</span>
-                </div>
+              <div className="bg-ink-100 flex items-center justify-center max-h-[70vh]">
+                <img src={active.src} alt={`${active.label} — before and after`} className="max-h-[70vh] w-full object-contain" />
               </div>
               <div className="p-5 sm:p-6 flex items-center justify-between gap-3">
                 <div>

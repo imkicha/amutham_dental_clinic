@@ -54,6 +54,43 @@ export const services = [
     ],
   },
   {
+    slug: 'full-mouth-dental-implants',
+    title: 'Full Mouth Dental Implants',
+    short: 'Fixed full-arch teeth — temporary teeth in 4 days, permanent in ~4 months.',
+    icon: 'implant',
+    color: 'from-ink-900 to-brand-600',
+    accent: 'bg-ink-900',
+    hero: 'Full Mouth Implant Rehabilitation — smile again in days, not months.',
+    description:
+      'Fixed full-arch rehabilitation for patients missing most or all of their teeth. Using 3D CBCT-guided planning and world-class implant systems, we place your implants and fit fixed temporary teeth within 4 days — with permanent fixed teeth delivered after healing (~4 months) for the best strength, function and natural appearance.',
+    benefits: [
+      'Fixed temporary teeth in just 4 days',
+      'Permanent fixed teeth after healing (~4 months)',
+      'Painless — done under local anaesthesia',
+      '3D CBCT-guided implant planning',
+      'Suitable even with diabetes or low bone',
+      'EMI options available',
+    ],
+    faqs: [
+      {
+        q: 'How long will it take to get my new teeth?',
+        a: 'You receive fixed temporary teeth within 4 days after implant surgery. Your final permanent fixed teeth are delivered after the implants heal and fuse with the jawbone (approximately 4 months) for the best strength, function and natural appearance.',
+      },
+      {
+        q: 'Is full mouth dental implant surgery painful?',
+        a: "No. The procedure is performed under local anaesthesia, so you won't feel pain during surgery. Mild swelling or discomfort for a few days is normal and is easily managed with prescribed medication — most patients are surprised at how comfortable recovery is.",
+      },
+      {
+        q: 'Am I eligible for full mouth dental implants?',
+        a: 'Most people who have lost multiple or all of their teeth are suitable candidates — even if you have diabetes or have been told you have less bone. After a detailed consultation, 3D CBCT scan and clinical examination, our implant specialists recommend the most suitable treatment plan for you.',
+      },
+      {
+        q: 'How much do full mouth dental implants cost?',
+        a: 'We offer three packages: Basic – ₹2,50,000 (high-quality fixed full-mouth solution), Premium – ₹3,00,000 (advanced implant system with enhanced prosthetic materials), and Elite – ₹3,50,000 (our most advanced rehabilitation with premium components for the highest aesthetics, strength and longevity). Our specialists help you choose the best option for your oral condition, expectations and budget.',
+      },
+    ],
+  },
+  {
     slug: 'braces-aligners',
     title: 'Braces & Aligners',
     short: 'Metal, ceramic and Invisalign® clear aligners for all ages.',
@@ -99,22 +136,6 @@ export const services = [
     faqs: [
       { q: 'Will veneers look natural?', a: 'Yes — our DSD process matches shape, shade and translucency to your face.' },
       { q: 'How long do veneers last?', a: 'Premium porcelain veneers last 12–15+ years with normal care.' },
-    ],
-  },
-  {
-    slug: 'emergency-dental-care',
-    title: 'Emergency Dental Care',
-    short: '24×7 emergency line for trauma, swelling and severe pain.',
-    icon: 'emergency',
-    color: 'from-rose-600 to-ink-900',
-    accent: 'bg-rose-600',
-    hero: 'Dental emergency? We are here for you.',
-    description:
-      'Same-day appointments for severe toothache, broken teeth, abscess, swelling, accident trauma and lost crowns. Call our emergency line any time.',
-    benefits: ['24×7 emergency phone line', 'Same-day appointments', 'Pain relief in 30 minutes', 'Accident & trauma care', 'Insurance assistance'],
-    faqs: [
-      { q: 'What counts as a dental emergency?', a: 'Severe pain, swelling, bleeding, knocked-out tooth, broken crown, lost filling or trauma.' },
-      { q: 'What should I do first?', a: 'Call our emergency line — we will guide you through first aid and book you in immediately.' },
     ],
   },
 ];

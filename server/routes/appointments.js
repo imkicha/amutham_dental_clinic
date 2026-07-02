@@ -9,10 +9,10 @@ const TREATMENTS = [
   'Root Canal Treatment',
   'Teeth Whitening',
   'Dental Implants',
+  'Full Mouth Dental Implants',
   'Braces & Aligners',
   'Pediatric Dentistry',
   'Cosmetic Dentistry',
-  'Emergency Dental Care',
   'General Consultation',
 ];
 

@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,10 +12,13 @@ const rateLimit = require('express-rate-limit');
 const appointmentsRouter = require('./routes/appointments');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
+const reviewsRouter = require('./routes/reviews');
+const videosRouter = require('./routes/videos');
 
 const app = express();
 
-app.use(helmet());
+// CSP disabled: the client serves images from external hosts (e.g. Unsplash).
+app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: '1mb' }));
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
@@ -35,6 +40,15 @@ app.get('/api/health', (_req, res) => res.json({ ok: true, time: new Date().toIS
 app.use('/api/appointments', appointmentsRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/reviews', reviewsRouter);
+app.use('/api/videos', videosRouter);
+
+// Serve the built React client (single-origin) when a production build exists.
+const clientDist = path.join(__dirname, '..', 'client', 'dist');
+if (fs.existsSync(path.join(clientDist, 'index.html'))) {
+  app.use(express.static(clientDist));
+  app.get(/^(?!\/api).*/, (_req, res) => res.sendFile(path.join(clientDist, 'index.html')));
+}
 
 app.use((err, _req, res, _next) => {
   console.error(err);

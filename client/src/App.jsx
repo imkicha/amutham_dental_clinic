@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/Home.jsx'));
 const ServicePage = lazy(() => import('./pages/services/ServicePage.jsx'));
 const BookAppointment = lazy(() => import('./pages/BookAppointment.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
+const Pricing = lazy(() => import('./pages/Pricing.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
 const AdminLogin = lazy(() => import('./pages/admin/AdminLogin.jsx'));
@@ -51,6 +52,7 @@ export default function App() {
                     <Route path="/services/:slug" element={<ServicePage />} />
                     <Route path="/book-appointment" element={<BookAppointment />} />
                     <Route path="/about" element={<About />} />
+                    <Route path="/pricing" element={<Pricing />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>

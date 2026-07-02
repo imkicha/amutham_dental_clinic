@@ -12,7 +12,7 @@ export default function Hero() {
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <span className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              10,000+ happy patients · 4.9★ rated
+              10,000+ happy patients · 5.0★ rated
             </span>
           </motion.div>
 
@@ -54,11 +54,19 @@ export default function Hero() {
           >
             <Stat icon={<Award className="h-5 w-5 text-brand-600" />} value="15+" label="Years experience" />
             <Stat icon={<Shield className="h-5 w-5 text-brand-600" />} value="100%" label="Sterilised" />
-            <Stat icon={<Star className="h-5 w-5 text-brand-500" />} value="4.9★" label="Patient rated" />
+            <Stat icon={<Star className="h-5 w-5 text-brand-500" />} value="5.0★" label="Patient rated" />
           </motion.div>
         </div>
 
         <div className="lg:col-span-5 relative">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45, delay: 0.1 }}
+            className="text-center mb-4"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full bg-ink-900 text-brand-500 px-4 py-1.5 text-sm font-display font-bold shadow-soft">
+              <Award className="h-4 w-4" /> Most trusted dental doctor
+            </span>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }}
             className="relative aspect-[4/5] w-full max-w-md mx-auto"
@@ -85,7 +93,7 @@ export default function Hero() {
 
             <FloatingCard className="-right-4 bottom-10 hidden sm:flex animate-floaty">
               <div className="flex -space-x-2">
-                {['1027','1011','1005'].map((id) => (
+                {['12','32','45'].map((id) => (
                   <img key={id} className="h-8 w-8 rounded-full ring-2 ring-white object-cover" src={`https://i.pravatar.cc/64?img=${id}`} alt="" />
                 ))}
               </div>

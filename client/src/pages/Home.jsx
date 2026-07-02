@@ -1,9 +1,12 @@
 import SEO from '../components/layout/SEO.jsx';
 import Hero from '../components/sections/Hero.jsx';
 import Trust from '../components/sections/Trust.jsx';
+import AwardSection from '../components/sections/AwardSection.jsx';
 import ServicesGrid from '../components/sections/ServicesGrid.jsx';
+import Pricing from '../components/sections/Pricing.jsx';
 import Reviews from '../components/sections/Reviews.jsx';
 import Gallery from '../components/sections/Gallery.jsx';
+import Shorts from '../components/sections/Shorts.jsx';
 import BookingSection from '../components/sections/BookingSection.jsx';
 import ContactSection from '../components/sections/ContactSection.jsx';
 import { CLINIC } from '../utils/clinic';
@@ -28,7 +31,7 @@ export default function Home() {
     openingHoursSpecification: [
       { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], opens: '18:00', closes: '21:00' },
     ],
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '500' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '5.0', reviewCount: '322' },
   };
   return (
     <>
@@ -39,9 +42,12 @@ export default function Home() {
       />
       <Hero />
       <Trust />
+      <Pricing />
       <ServicesGrid />
       <Gallery />
+      <Shorts />
       <Reviews />
+      <AwardSection />
       <BookingSection />
       <ContactSection />
     </>
