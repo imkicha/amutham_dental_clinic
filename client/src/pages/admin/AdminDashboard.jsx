@@ -39,9 +39,14 @@ export default function AdminDashboard() {
     setLoading(true);
     try {
       const { data } = await api.get('/admin/appointments', { params: filters });
-      setData(data);
+      // Normalise — never let a malformed/HTML response crash the render.
+      if (!data || typeof data !== 'object' || !Array.isArray(data.items)) {
+        throw new Error('Unexpected response from the server (is the API reachable?)');
+      }
+      setData({ items: data.items, total: data.total || 0, stats: data.stats || {} });
     } catch (err) {
-      toast.error(err?.response?.data?.error || 'Could not load');
+      setData({ items: [], total: 0, stats: {} });
+      toast.error(err?.response?.data?.error || err.message || 'Could not load');
     } finally {
       setLoading(false);
     }
