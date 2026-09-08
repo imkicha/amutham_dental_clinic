@@ -2,7 +2,7 @@
 // UI is untouched — this only feeds <head> tags and structured data.
 
 export const SITE_URL = 'https://www.amuthamdentalcare.com';
-export const SITE_NAME = 'Amutham Dental Care and Full Mouth Dental Centre';
+export const SITE_NAME = 'Amutham Dental Care and Full Mouth Implant Dental Centre';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 export const TWITTER_HANDLE = '';
 
@@ -31,7 +31,7 @@ export const abs = (path = '/') => `${SITE_URL}${path.startsWith('/') ? path : `
 // ── Clinic NAP (name / address / phone) used across schema ───────────────
 const CLINIC_NAP = {
   name: SITE_NAME,
-  legalName: 'Amutham Dental Care and Full Mouth Dental Centre',
+  legalName: 'Amutham Dental Care and Full Mouth Implant Dental Centre',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.webp`,
   image: DEFAULT_OG_IMAGE,

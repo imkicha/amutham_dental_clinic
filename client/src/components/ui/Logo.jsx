@@ -31,7 +31,7 @@ export default function Logo({ light = false }) {
           AMUTHAM DENTAL CARE
         </span>
         <span className={`text-[10px] tracking-[0.16em] uppercase font-semibold ${light ? 'text-brand-400' : 'text-brand-700'}`}>
-          and Full Mouth Dental Centre
+          and Full Mouth Implant Dental Centre
         </span>
       </span>
     </Link>
