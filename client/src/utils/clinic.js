@@ -1,7 +1,7 @@
 const env = import.meta.env;
 
 export const CLINIC = {
-  name: env.VITE_CLINIC_NAME || 'Amutham Dental Care',
+  name: env.VITE_CLINIC_NAME || 'Amutham Dental Care and Full Mouth Dental Centre',
   tagline: env.VITE_CLINIC_TAGLINE || 'A Complete Family Dental Care',
   phone: env.VITE_CLINIC_PHONE || '+91 94454 11891',
   phoneAlt: env.VITE_CLINIC_PHONE_ALT || '+91 72004 29119',

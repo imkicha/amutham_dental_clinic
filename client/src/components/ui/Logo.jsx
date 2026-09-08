@@ -28,10 +28,10 @@ export default function Logo({ light = false }) {
       )}
       <span className="flex flex-col leading-tight">
         <span className={`font-display font-extrabold text-[16px] tracking-tight ${light ? 'text-white' : 'text-ink-900'}`}>
-          AMUTHAM DENTAL
+          AMUTHAM DENTAL CARE
         </span>
-        <span className={`text-[10px] tracking-[0.22em] uppercase font-semibold ${light ? 'text-brand-400' : 'text-brand-700'}`}>
-          A Complete Family Dental Care
+        <span className={`text-[10px] tracking-[0.16em] uppercase font-semibold ${light ? 'text-brand-400' : 'text-brand-700'}`}>
+          and Full Mouth Dental Centre
         </span>
       </span>
     </Link>
