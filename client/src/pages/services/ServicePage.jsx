@@ -26,7 +26,7 @@ export default function ServicePage() {
       { name: 'Services', path: '/#services' },
       { name: svc.title, path },
     ]),
-    webPageSchema({ path, title: `${seoTitle} | Amutham Dental Care`, description: seoDesc }),
+    webPageSchema({ path, title: `${seoTitle} | Amutham Dental Care and Full Mouth Dental Centre`, description: seoDesc }),
   ];
   if (svc.faqs && svc.faqs.length) schemas.push(faqSchema(svc.faqs));
 

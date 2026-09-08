@@ -56,7 +56,7 @@ export default function Home() {
           dentistSchema(),
           organizationSchema(),
           websiteSchema(),
-          webPageSchema({ path: '/', title: `${HOME_TITLE} | Amutham Dental Care`, description: HOME_DESC }),
+          webPageSchema({ path: '/', title: `${HOME_TITLE} | Amutham Dental Care and Full Mouth Dental Centre`, description: HOME_DESC }),
           faqSchema(HOME_FAQS),
         ]}
       />
